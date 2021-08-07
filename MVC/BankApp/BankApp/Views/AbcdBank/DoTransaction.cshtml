@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "DoTransaction";
+    Layout = "~/Views/AbcdBank/MainMaster.cshtml";
+}
+
+
+<h2>DoTransaction</h2>
+
+@model BankApp.Models.TransactionModel
+@using (Html.BeginForm())
+{
+    <h3>@Model.Status</h3>
+    <label>Name: @Session["loggedInUser"].ToString()</label>
+
+    <div class="form-control">
+        <label>
+            Amount:
+            @Html.TextBoxFor(m => m.Amount)
+            <span style="color:red">@Html.ValidationMessageFor(m => m.Amount)</span>
+            <span style="color:red">@Model.AmountErrorMessage</span>
+        </label>
+    </div>
+
+    <div class="form-control">
+        <label>
+            @Html.RadioButtonFor(m => m.Type, "D") Depost
+            <span style="color:red">@Html.ValidationMessageFor(m => m.Amount)</span>
+        </label>
+
+        <label>
+            @Html.RadioButtonFor(m => m.Type, "W") Widthdraw
+            <span style="color:red">@Html.ValidationMessageFor(m => m.Amount)</span>
+        </label>
+    </div>
+
+    <div class="form-control">
+        <button type="submit" class="btn-default">Add</button>
+    </div>
+
+}
+

@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Student/MasterPage.cshtml";
+    @model StudentApp.Models.UpdateStudentModel
+}
+
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1>UPDATE FORM</h1>
+            </div>
+
+            @using (Html.BeginForm("UpdateDetails", "Student"))
+            {
+                <h2></h2>
+
+                <div class="form-group">
+                    <label for="name">Student ID</label>
+                    @Html.TextBoxFor(m => m.ID)
+                    <span style="color:red">@Html.ValidationMessageFor(m => m.ID) </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Roll No</label>
+                    @Html.TextBoxFor(m => m.RollNo)
+                    <span style="color:red">@Html.ValidationMessageFor(m => m.RollNo) </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    @Html.TextBoxFor(m => m.Name)
+                    <span style="color:red">@Html.ValidationMessageFor(m => m.Name) </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">CGPA</label>
+                    @Html.TextBoxFor(m => m.Cgpa)
+                    <span style="color:red">@Html.ValidationMessageFor(m => m.Cgpa) </span>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿@{
+    string name;
+    if (Request.QueryString.AllKeys.Contains("developer"))
+    {
+        name = Request.QueryString["developer"];
+    }
+    else
+    {
+        name = "Nobody";
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Welcome1</title>
+</head>
+<body>
+    <div> 
+        @for (int i=0;i<10;i++)
+        {
+                <h1>Welcome @name</h1> 
+            }
+    </div>
+</body>
+</html>

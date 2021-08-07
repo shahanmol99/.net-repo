@@ -1,0 +1,28 @@
+﻿
+@{
+
+    if(Context.Application["count"]==null)
+    {
+        Context.Application["count"] = 0;
+    }
+
+    int oldCount = (int)Context.Application["count"];
+    Context.Application["count"] = ((int) Context.Application["count"] + 1);
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h3>old: @oldCount</h3>
+        <h3>new: @Context.Application["count"]</h3>
+        @Html.ActionLink("Click Here To View Summary", "Summary", "Summary")
+    </div>
+</body>
+</html>

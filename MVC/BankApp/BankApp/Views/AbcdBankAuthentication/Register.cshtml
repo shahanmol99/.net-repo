@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/AbcdBankAuthentication/LoginMasterPage.cshtml";
+}
+
+@model BankApp.Models.RegistrationViewModel
+
+@using (Html.BeginForm())
+{
+    <h2>Regustration Form</h2>
+        <div class="form-control">
+            <label>
+                Username:
+                @Html.TextBoxFor(m => m.Name)
+                <span style="color:red">@Html.ValidationMessageFor(m => m.Name)</span>
+                <span style="color:red">@Model.NameErrorMessage</span>
+            </label>
+        </div>
+
+        <div class="form-control">
+            <label>
+                Balance:
+                @Html.TextBoxFor(m => m.Balance)
+                <span style="color:red">@Html.ValidationMessageFor(m => m.Balance)</span>
+            </label>
+        </div>
+
+        <div class="form-control">
+            <label>
+                Password:
+                @Html.PasswordFor(m => m.Password)
+                <span style="color:red">@Html.ValidationMessageFor(m => m.Password)</span>
+            </label>
+        </div>
+
+
+        <div class="form-control">
+            <label>
+                Re-Enter Password:
+                @Html.PasswordFor(m => m.RePassword)
+                <span style="color:red">@Html.ValidationMessageFor(m => m.RePassword)</span>
+            </label>
+        </div>
+
+
+        <div class="form-control">
+            <button type="submit" class="btn btn-success">Register</button>
+            <br />
+            @Html.ActionLink("Already Registered?", "Login")
+        </div>
+
+        <div class="form-control">
+            <label style="color: red">@Model.RegisterErrorMessage</label>
+            <label style="color: forestgreen">@Model.RegisterSuccessMessage</label>
+        </div>
+}
+
+

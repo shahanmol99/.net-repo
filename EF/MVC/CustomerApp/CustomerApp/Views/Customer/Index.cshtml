@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Customer/MasterPage.cshtml";
+}
+@model List<CustomerLib.Model.Customer>
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-3">
+
+        <table class="table">
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Loc
+                </th>
+
+            </tr>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => customer.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => customer.Location)
+                    </td>
+                    <td>
+                        <button type="submit" onclick="location.href='@Url.Action("Update","Customer", customer)'" class="btn btn-primary">Update</button>
+                        <button type="submit" onclick="location.href='@Url.Action("Delete","Customer", customer)'" class="btn btn-danger">Delete</button>
+
+                    </td>
+                </tr>
+
+            }
+
+        </table>
+    </div>
+</div>
+

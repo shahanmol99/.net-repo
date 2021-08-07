@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "ViewPassBook";
+    Layout = "~/Views/AbcdBank/MainMaster.cshtml";
+}
+
+<h2>PassBook</h2>
+
+@foreach(string str in ViewBag.passBookString)
+            {
+                <p>@str</p>
+            }
+
+@using(Html.BeginForm("Export", "AbcdBank"))
+            {
+                <button class="btn-default">Export</button>
+            }
+

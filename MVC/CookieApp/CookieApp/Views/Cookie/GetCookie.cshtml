@@ -1,0 +1,20 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetCookie</title>
+</head>
+<body style="background-color: @Request.Cookies["color"].Value">
+    <div>
+        <h2>Cookie Details</h2>
+        <h4>Name: @Request.Cookies["color"].Name</h4>
+        <h4>Value: @Request.Cookies["color"].Value</h4>
+        <h4>Path: @Request.Cookies["color"].Path</h4>
+        <h4>Expires: @Request.Cookies["color"].Expires</h4>
+        <h4>@Session["expires"]</h4>
+
+    </div>
+</body>
+</html>

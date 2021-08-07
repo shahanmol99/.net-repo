@@ -1,0 +1,37 @@
+﻿@model RegistrationApp.Models.RegistrationViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+
+            <p>Enter Your Name: </p>
+            @Html.TextBoxFor(m => m.Name)
+            <p style="color: red">@Html.ValidationMessageFor(m => m.Name)</p>
+
+            <p>Enter Your Email: </p>
+            @Html.TextBoxFor(m => m.Email)
+            <p style="color: red">@Html.ValidationMessageFor(m => m.Email)</p>
+
+            <p>Enter Your Age: </p>
+            @Html.TextBoxFor(m => m.Age)
+            <p style="color: red">@Html.ValidationMessageFor(m => m.Age)</p>
+
+            <p>Enter Your Salary: </p>
+            @Html.TextBoxFor(m => m.Salary)
+            <p style="color: red">@Html.ValidationMessageFor(m => m.Salary)</p>
+
+            <br />
+            <input type="submit" />
+        }
+
+    </div>
+</body>
+</html>

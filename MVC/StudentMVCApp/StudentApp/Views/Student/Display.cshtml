@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Display";
+    Layout = "~/Views/Student/MasterPage.cshtml";
+    @model List<StudentLib.Model.Student>
+}
+
+<h2>Total: @Model.Count</h2>
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-3">
+
+        <table class="table">
+            <tr>
+                <th>
+                    RollNo
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Cgpa
+                </th>
+
+            </tr>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => student.RollNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => student.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => student.CGPA)
+                    </td>
+                    <td>
+                        @using(Html.BeginForm("Update", "Student",student))
+                {
+                    <button type="submit" class="btn btn-primary">Update</button>
+                }
+                    </td>
+                </tr>
+
+            }
+
+        </table>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/AbcdBankAuthentication/LoginMasterPage.cshtml";
+}
+
+@model BankApp.Models.BankUserModel
+@using (Html.BeginForm())
+{
+    <h2>Login Page</h2>
+
+    <div class="form-control">
+        <label>
+            Username:
+            @Html.TextBoxFor(m => m.Name)
+            <span style="color:red">@Html.ValidationMessageFor(m => m.Name)</span>
+            <span style="color:red">@Model.NameErrorMessage</span>
+        </label>
+    </div>
+
+    <div class="form-control">
+        <label>
+            Password:
+            @Html.PasswordFor(m => m.Password)
+            <span style="color:red">@Html.ValidationMessageFor(m => m.Password)</span>
+            <span style="color:red">@Model.PasswordErrorMessage</span>
+        </label>
+    </div>
+
+    <div class="form-control">
+        <button type="submit" class="btn btn-info">Login</button>
+        <br />
+        @Html.ActionLink("Not Yet Registered?", "Register")
+    </div>
+
+}
+

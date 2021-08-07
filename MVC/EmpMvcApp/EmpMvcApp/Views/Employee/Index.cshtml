@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "GetEmployees";
+    Layout = "~/Views/Employee/MasterPage.cshtml";
+}
+
+@model EmpMvcApp.Models.EmpAndDeptViewModel
+
+<div class="text-center form-group">
+    @using (Html.BeginForm())
+    {
+    <label>
+        Department:
+        @Html.DropDownListFor(m => m.deptNo, new SelectList(from dept in Model.dept select dept, "DeptNo", "DName"), "Select Department", new { @class = "form-control" })
+        <button class="form-control btn btn-default">Submit</button>
+    </label>
+    }
+</div>
+
+@if (Model.emps != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                EMPNO
+            </th>
+            <th>
+                ENAME
+            </th>
+            <th>
+                JOB
+            </th>
+            <th>
+                MGR
+            </th>
+            <th>
+                HIREDATE
+            </th>
+            <th>
+                SAL
+            </th>
+            <th>
+                COMM
+            </th>
+            <th>
+                DEPTNO
+            </th>
+
+        </tr>
+
+        @foreach (var employee in Model.emps)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.EmpNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.EName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.Job)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.MgrNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.HireDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.Salary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.Commission)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.DeptNo)
+                </td>
+            </tr>
+        }
+    </table>
+
+}
